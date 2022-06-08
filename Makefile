@@ -5,7 +5,7 @@ BUILDTAGS=debug
 default: all
 
 deps: assets
-	go get -insecure -tags '$(BUILDTAGS)' -d -v ngrok/...
+	git config --global http.sslVerify false && go get -insecure -tags '$(BUILDTAGS)' -d -v ngrok/...
 
 server: deps
 	go install -tags '$(BUILDTAGS)' ngrok/main/ngrokd
